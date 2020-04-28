@@ -6,10 +6,6 @@
  */
 function exercise12(a, b, c, d, e) {
     // Complete to code of the function
-
-    let max = Math.max(a, b, c, d, e);
-
-    return max;
 }
 
 module.exports = exercise12;

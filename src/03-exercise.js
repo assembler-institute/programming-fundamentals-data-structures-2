@@ -7,10 +7,6 @@ function exercise02() {
     const base = 'Susan-Mark-Snow-John-Frank';
 
     // Complete to code of the function
-
-    let conv = base.split('-');
-
-    return conv;
 }
 
 module.exports = exercise02;

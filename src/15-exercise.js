@@ -41,20 +41,6 @@
 
 function exercise15(data) {
     // Complete to code of the function
-
-    let persons = JSON.parse(data);
-
-    let result = [];
-
-    persons.forEach(function (person) {
-        person.favorites.forEach(function (favorite) {
-            if (!result.includes(favorite)) {
-                result.push(favorite);
-            }
-        });
-    });
-
-    return result;
 }
 
 module.exports = exercise15;

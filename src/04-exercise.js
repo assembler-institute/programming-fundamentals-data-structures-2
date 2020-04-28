@@ -8,10 +8,6 @@ function exercise02() {
     const base = 'user-first-name';
 
     // Complete to code of the function
-
-    let conv = base.split('-').join('_');
-
-    return conv;
 }
 
 module.exports = exercise02;

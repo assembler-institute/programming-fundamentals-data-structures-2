@@ -25,15 +25,14 @@
 // Add the params to the function to capture
 // the first and second param in variables
 // and all the other params in an array of params.
-function exercise10(first, second, ...rest) {
+function exercise10() {
     // Complete to code of the function
 
-    let reversedRest = [...rest].reverse();
-
+    // Remove the empty strings and add the variables
     return {
-        first: first,
-        second: second,
-        rest: reversedRest,
+        first: '',
+        second: '',
+        rest: '',
     };
 }
 

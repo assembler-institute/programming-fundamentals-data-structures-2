@@ -13,15 +13,10 @@
  *
  * => c, b, a
  */
-function exercise09(...rest) {
+
+// Add the rest params to the function
+function exercise09() {
     // Complete to code of the function
-
-    // let copy = [...rest];
-    // let copy = rest.concat();
-    let copy = rest.slice();
-    let reversed = copy.reverse();
-
-    return reversed;
 }
 
 module.exports = exercise09;

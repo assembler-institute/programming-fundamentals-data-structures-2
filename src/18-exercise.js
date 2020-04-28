@@ -78,25 +78,6 @@
 
 function exercise18(data) {
     // Complete to code of the function
-
-    let users = JSON.parse(data);
-
-    let filtered = users.filter(function (user) {
-        return user.paid === true;
-    });
-
-    let result = filtered.map((user) => {
-        let [firstName, lastName] = user.name.split(' ');
-
-        return {
-            firstName: firstName,
-            lastName: lastName,
-            email: user.email.trim().toLowerCase(),
-            paid: user.paid,
-        };
-    });
-
-    return JSON.stringify(result);
 }
 
 module.exports = exercise18;

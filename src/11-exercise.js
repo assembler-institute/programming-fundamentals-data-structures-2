@@ -6,10 +6,6 @@
  */
 function exercise11(a, b, c, d, e) {
     // Complete to code of the function
-
-    let min = Math.min(a, b, c, d, e);
-
-    return min;
 }
 
 module.exports = exercise11;
