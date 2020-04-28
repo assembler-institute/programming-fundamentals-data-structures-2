@@ -13,6 +13,8 @@
  *
  * => c, b, a
  */
+
+// Add the rest params to the function
 function exercise09(...rest) {
     // Complete to code of the function
 

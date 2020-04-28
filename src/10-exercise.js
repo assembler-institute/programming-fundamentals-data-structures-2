@@ -30,6 +30,7 @@ function exercise10(first, second, ...rest) {
 
     let reversedRest = [...rest].reverse();
 
+    // Remove the empty strings and add the variables
     return {
         first: first,
         second: second,
