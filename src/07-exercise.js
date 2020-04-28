@@ -8,6 +8,8 @@
 function exercise07() {
     const sentence = 'The quick brown fox jumps over the lazy dog.';
 
+    // Complete to code of the function
+
     let includes = sentence.includes('brown');
 
     return includes;

@@ -1,80 +1,102 @@
 /**
- * NOTE:
  *
- * This exercise is the same as the last one with 2 differences:
+ * You will have to return an array in JSON format of the following data:
  *
- * 1. The `favorites` parameter could be `null` instead of an array.
- * 2. The `favorites` array could contain `null` values.
- *
- * You should do the same steps as the last exercise but taking into
- * account that:
- *
- * 1. the `favorites` property value could be `null`.
- * 2. the `favorites` array could have `null` values that
- *    have to be excluded from the final array.
- *
- * The `persons` param would have the following structure:
- *
- * persons = [
- *     {
- *         name: 'string',
- *         favorites: ['string', null, 'string'],
- *     },
- *     {
- *         name: 'string',
- *         favorites: null,
- *     },
- *     {
- *         name: 'string',
- *         favorites: ['string', null],
- *     },
- *
- *     ...
- * ];
- *
- * The following ⬇️ is the same info from the previous exercise.
- *
- * Use `JSON.parse()` to convert the `data` param to an array of objects.
- *
- * The `data` param contains an array of objects with
- * the information about several people.
- *
- * It is sent in JSON format.
+ * The function will receive an array of users in JSON format
  *
  * You will have to:
- * 1. convert the `data` param to an object with `JSON.parse()`.
  *
- * 2. create an array of all the values in the `favorites` array
- *    so that the final array that you created is a single array
- *    of strings, only containing strings, not other arrays.
+ * 1. json parse the `data` param to get an array of objects
  *
- * 3. The array should be created using loops.
+ * 2. create a new array of objects with the information about each user
+ *    in the `data` array so that:
  *
- * 4. the array of strings should not have duplicate values.
+ *    2.1 if the user has the property of `paid` set to false,
+ *        you will have to skip the user from the final array of users.
  *
- * 5. return the array of strings.
+ *        Only include the users with the property of: `paid: true`
+ *
+ *    2.2 user should have their name split in `firstName` and `lastName`.
+ *
+ *        The user you receive will have their name as a
+ *        full name under the `name` property.
+ *        name: 'ana maria' => firstName: 'ana', lastName: 'maria'
+ *
+ *    2.3 you will have to use `trim()` and `toLowerCase()`
+ *        on the email property so that it doesn’t have empty spaces
+ *        on each side and its written in lower case.
+ *        '      UseR@EmaIl.COM   ' => 'user@email.com'
+ *
+ * 3. return the array of objects of users in JSON format with `JSON.stringify`
+ *
+ * The `data` parameter you receive has the following structure:
+ *
+ * users = [
+ *    {
+ *        name: 'string string',
+ *        paid: true,
+ *        email: '   name@mail.COm',
+ *    },
+ *    {
+ *        name: 'string string',
+ *        paid: false,
+ *        email: '   NAmE@MAil.COM',
+ *    },
+ *    {
+ *        name: 'string string',
+ *        paid: true,
+ *        email: '  NamE@MAil.COM    ',
+ *    },
+ *    {
+ *        name: 'string string',
+ *        paid: true,
+ *        email: 'NAME@MAil.COM    ',
+ *    },
+ * ];
+ *
+ * The final `result` should have the following structure
+ * in JSON format:
+ *
+ * result = [
+ *    {
+ *        firstName: 'string',
+ *        lastName: 'string',
+ *        paid: true,
+ *        email: 'name@mail.com',
+ *    },
+ *    {
+ *        firstName: 'string',
+ *        lastName: 'string',
+ *        paid: true,
+ *        email: 'name@mail.com',
+ *    },
+ *
+ *   ...
+ *
+ * ];
  */
 
-/**
- * TIP:
- * use console.log to inspect the object to understand the data you are receiving
- */
 function exercise18(data) {
-    let persons = JSON.parse(data);
+    // Complete to code of the function
 
-    let result = [];
+    let users = JSON.parse(data);
 
-    persons.forEach(function (person) {
-        if (person.favorites !== null) {
-            person.favorites.forEach(function (favorite) {
-                if (favorite !== null && !result.includes(favorite)) {
-                    result.push(favorite);
-                }
-            });
-        }
+    let filtered = users.filter(function (user) {
+        return user.paid === true;
     });
 
-    return result;
+    let result = filtered.map((user) => {
+        let [firstName, lastName] = user.name.split(' ');
+
+        return {
+            firstName: firstName,
+            lastName: lastName,
+            email: user.email.trim().toLowerCase(),
+            paid: user.paid,
+        };
+    });
+
+    return JSON.stringify(result);
 }
 
 module.exports = exercise18;

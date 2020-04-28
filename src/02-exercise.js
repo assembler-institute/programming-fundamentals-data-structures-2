@@ -7,6 +7,8 @@
 function exercise02() {
     const cities = ['Barcelona', 'Madrid', 'Lisbon', 'Berlin', 'Paris'];
 
+    // Complete to code of the function
+
     let conv = cities.map(function (city) {
         return city.toUpperCase();
     });

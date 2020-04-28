@@ -7,6 +7,8 @@
 function exercise02() {
     const base = '      my-name-is-alex     ';
 
+    // Complete to code of the function
+
     let conv = base.trim().split('-').join('_');
 
     return conv;

@@ -19,6 +19,8 @@
  */
 
 function exercise13(city) {
+    // Complete to code of the function
+
     let { cityName = 'Default City Name' } = city;
 
     return cityName;

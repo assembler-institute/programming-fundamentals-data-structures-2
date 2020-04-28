@@ -16,6 +16,8 @@
  */
 
 function exercise14(names) {
+    // Complete to code of the function
+
     let [, , , name = 'Default Name'] = names;
 
     return name;

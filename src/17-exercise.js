@@ -1,4 +1,38 @@
 /**
+ * NOTE:
+ *
+ * This exercise is the same as the last one with 1 difference:
+ *
+ * The `favorites` parameter could be `null` instead of an array,
+ * and it could contain `null` values if it is not null.
+ *
+ * You should do the same steps as the last exercise but taking into
+ * account that:
+ *
+ * The `favorites` property value could be `null` and that the array
+ * could have `null` values that have to be excluded from the final array.
+ *
+ * The `persons` param could have a structure similar to the following:
+ *
+ * persons = [
+ *     {
+ *         name: 'string',
+ *         favorites: ['string', null, 'string'],
+ *     },
+ *     {
+ *         name: 'string',
+ *         favorites: null,
+ *     },
+ *     {
+ *         name: 'string',
+ *         favorites: ['string', null],
+ *     },
+ *
+ *     ...
+ * ];
+ *
+ * The following ⬇️ is the same info from the previous exercise.
+ *
  * Use `JSON.parse()` to convert the `data` param to an array of objects.
  *
  * The `data` param contains an array of objects with
@@ -18,42 +52,23 @@
  * 4. the array of strings should not have duplicate values.
  *
  * 5. return the array of strings.
- *
- * The `persons` param has the following structure:
- *
- * persons = [
- *     {
- *         name: 'string',
- *         favorites: ['string', 'string', 'string'],
- *     },
- *     {
- *         name: 'string',
- *         favorites: ['string', 'string', 'string'],
- *     },
- *     {
- *         name: 'string',
- *         favorites: ['string', 'string'],
- *     },
- *
- *     ...
- * ];
  */
 
-/**
- * TIP:
- * use console.log to inspect the object to understand the data you are receiving
- */
 function exercise17(data) {
+    // Complete to code of the function
+
     let persons = JSON.parse(data);
 
     let result = [];
 
     persons.forEach(function (person) {
-        person.favorites.forEach(function (favorite) {
-            if (!result.includes(favorite)) {
-                result.push(favorite);
-            }
-        });
+        if (person.favorites !== null) {
+            person.favorites.forEach(function (favorite) {
+                if (favorite !== null && !result.includes(favorite)) {
+                    result.push(favorite);
+                }
+            });
+        }
     });
 
     return result;

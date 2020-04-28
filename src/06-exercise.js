@@ -8,6 +8,8 @@
 function exercise06() {
     const baseString = 'hello-world-I-am-learning-javascript';
 
+    // Complete to code of the function
+
     let endsWith = baseString.endsWith('javascript');
 
     return endsWith;

@@ -26,6 +26,8 @@
 // the first and second param in variables
 // and all the other params in an array of params.
 function exercise10(first, second, ...rest) {
+    // Complete to code of the function
+
     let reversedRest = [...rest].reverse();
 
     return {

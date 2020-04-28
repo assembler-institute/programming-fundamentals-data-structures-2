@@ -1,42 +1,36 @@
 const exercise17 = require('../17-exercise');
 
 describe('17-exercise', () => {
-    test('use json.parse to convert the data param and manipulate the data', () => {
+    test('return an array of non duplicate values without null values', () => {
         let persons = [
             {
                 name: 'ana',
-                favorites: ['apple', 'pear', 'orange'],
+                favorites: ['apple', null, 'grapefruit'],
             },
             {
                 name: 'mike',
-                favorites: ['pineapple', 'apple', 'breadfruit'],
+                favorites: null,
             },
             {
                 name: 'louis',
-                favorites: ['cantaloupe', 'pear', 'orange'],
+                favorites: [null, 'pear', 'orange'],
             },
             {
                 name: 'jake',
-                favorites: ['cantaloupe', 'clementine'],
+                favorites: null,
             },
             {
                 name: 'john',
-                favorites: ['cantaloupe', 'clementine', 'pineapple'],
+                favorites: ['apple', 'pear', null],
             },
         ];
 
         let result = exercise17(JSON.stringify(persons));
 
-        expect(result).toHaveLength(7);
+        expect(result).toHaveLength(4);
 
-        expect([
-            'apple',
-            'pear',
-            'orange',
-            'pineapple',
-            'breadfruit',
-            'cantaloupe',
-            'clementine',
-        ]).toEqual(expect.arrayContaining(result));
+        expect(['apple', 'pear', 'grapefruit', 'orange']).toEqual(
+            expect.arrayContaining(result),
+        );
     });
 });

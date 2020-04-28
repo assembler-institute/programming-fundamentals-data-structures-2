@@ -1,39 +1,60 @@
 /**
- * Complete the function bellow to destructure from the `person` parameter
- * that it receives (it’s an object).
+ * Use `JSON.parse()` to convert the `data` param to an array of objects.
  *
- * 1. Use destructuring to capture the `streetName` as a variable.
+ * The `data` param contains an array of objects with
+ * the information about several people.
  *
- * 2. The variable should also have a default value of `Default Street Name`
- *    if the property doesn’t exist in the `address` nested object.
+ * It is sent in JSON format.
  *
- * 3. The `address` nested object should have a default value of `{}`
- *    if the object doesn’t exist in the `person` parameter object.
+ * You will have to:
+ * 1. convert the `data` param to an object with `JSON.parse()`.
  *
- * 4. Return the variable with the street name from the function.
+ * 2. create an array of all the values in the `favorites` array
+ *    so that the final array that you created is a single array
+ *    of strings, only containing strings, not other arrays.
  *
- * The `person` object that is received as a parameter has the following structure:
+ * 3. The array should be created using loops.
  *
- * NOTE:
+ * 4. the array of strings should not have duplicate values.
  *
- * The function might be called without a `streetName` or `address` object
- * so your solution should still work without those properties
- * on the person object.
+ * 5. return the array of strings.
  *
- * let person = {
- *    firstName: 'string',
- *    larstName: 'string',
- *    address: {
- *        streetName: 'string',
- *        postalCode: number,
- *    },
- * };
+ * The `persons` param has the following structure:
+ *
+ * persons = [
+ *     {
+ *         name: 'string',
+ *         favorites: ['string', 'string', 'string'],
+ *     },
+ *     {
+ *         name: 'string',
+ *         favorites: ['string', 'string', 'string'],
+ *     },
+ *     {
+ *         name: 'string',
+ *         favorites: ['string', 'string'],
+ *     },
+ *
+ *     ...
+ * ];
  */
 
-function exercise15(person) {
-    let { address: { streetName = 'Default Street Name' } = {} } = person;
+function exercise15(data) {
+    // Complete to code of the function
 
-    return streetName;
+    let persons = JSON.parse(data);
+
+    let result = [];
+
+    persons.forEach(function (person) {
+        person.favorites.forEach(function (favorite) {
+            if (!result.includes(favorite)) {
+                result.push(favorite);
+            }
+        });
+    });
+
+    return result;
 }
 
 module.exports = exercise15;

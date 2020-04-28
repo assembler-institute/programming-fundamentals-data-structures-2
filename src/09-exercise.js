@@ -14,6 +14,8 @@
  * => c, b, a
  */
 function exercise09(...rest) {
+    // Complete to code of the function
+
     // let copy = [...rest];
     // let copy = rest.concat();
     let copy = rest.slice();

@@ -1,36 +1,52 @@
 const exercise18 = require('../18-exercise');
 
 describe('18-exercise', () => {
-    test('return an array of non duplicate values without null values', () => {
-        let persons = [
+    test('return an array in json format of cleaned-up user data', () => {
+        let users = [
             {
-                name: 'ana',
-                favorites: ['apple', 'pear', null],
+                name: 'ana maria',
+                paid: true,
+                email: '   ANA@mail.COm',
             },
             {
-                name: 'mike',
-                favorites: null,
+                name: 'john smith',
+                paid: false,
+                email: '   jOhn@MAil.COM',
             },
             {
-                name: 'louis',
-                favorites: [null, 'pear', 'orange'],
+                name: 'alex smith',
+                paid: true,
+                email: '  ALex@MAil.COM    ',
             },
             {
-                name: 'jake',
-                favorites: null,
-            },
-            {
-                name: 'john',
-                favorites: ['apple', null, 'pear'],
+                name: 'andrew park',
+                paid: false,
+                email: 'andrew@MAil.COM    ',
             },
         ];
 
-        let result = exercise18(JSON.stringify(persons));
+        let json;
+        let object;
 
-        expect(result).toHaveLength(3);
+        try {
+            json = exercise18(JSON.stringify(users));
+            object = JSON.parse(json);
+        } catch (error) {}
 
-        expect(['apple', 'pear', 'orange']).toEqual(
-            expect.arrayContaining(result),
-        );
+        expect(json).toEqual(expect.any(String));
+        expect(object).toEqual([
+            {
+                firstName: 'ana',
+                lastName: 'maria',
+                email: 'ana@mail.com',
+                paid: true,
+            },
+            {
+                firstName: 'alex',
+                lastName: 'smith',
+                email: 'alex@mail.com',
+                paid: true,
+            },
+        ]);
     });
 });

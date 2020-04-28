@@ -7,6 +7,8 @@
 function exercise08() {
     const sentence = 'The quick brown fox jumps over the lazy dog.';
 
+    // Complete to code of the function
+
     let slice = sentence.slice(10, 19);
 
     return slice;

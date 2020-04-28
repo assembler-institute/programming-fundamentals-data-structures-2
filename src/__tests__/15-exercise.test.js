@@ -1,31 +1,42 @@
 const exercise15 = require('../15-exercise');
 
 describe('15-exercise', () => {
-    test('use destructuring to capture the `streetName` and return the value', () => {
-        let person1 = {
-            firstName: 'Ana',
-            larstName: 'Smith',
-            address: {
-                streetName: 'Caverson St 20',
-                postalCode: 25000,
+    test('use json.parse to convert the data param and manipulate the data', () => {
+        let persons = [
+            {
+                name: 'ana',
+                favorites: ['apple', 'pear', 'orange'],
             },
-        };
-
-        let person2 = {
-            firstName: 'John',
-            larstName: 'Snow',
-            address: {
-                postalCode: 25000,
+            {
+                name: 'mike',
+                favorites: ['pineapple', 'apple', 'breadfruit'],
             },
-        };
+            {
+                name: 'louis',
+                favorites: ['cantaloupe', 'pear', 'orange'],
+            },
+            {
+                name: 'jake',
+                favorites: ['cantaloupe', 'clementine'],
+            },
+            {
+                name: 'john',
+                favorites: ['cantaloupe', 'clementine', 'pineapple'],
+            },
+        ];
 
-        let person3 = {
-            firstName: 'Mike',
-            larstName: 'Travis',
-        };
+        let result = exercise15(JSON.stringify(persons));
 
-        expect(exercise15(person1)).toBe(person1.address.streetName);
-        expect(exercise15(person2)).toBe('Default Street Name');
-        expect(exercise15(person3)).toBe('Default Street Name');
+        expect(result).toHaveLength(7);
+
+        expect([
+            'apple',
+            'pear',
+            'orange',
+            'pineapple',
+            'breadfruit',
+            'cantaloupe',
+            'clementine',
+        ]).toEqual(expect.arrayContaining(result));
     });
 });

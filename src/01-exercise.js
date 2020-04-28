@@ -7,6 +7,8 @@
 function exercise01() {
     const baseString = 'hello-world';
 
+    // Complete to code of the function
+
     let conv = baseString.toUpperCase();
 
     return conv;
